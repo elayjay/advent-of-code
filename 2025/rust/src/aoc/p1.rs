@@ -82,7 +82,7 @@ fn get_turns() -> Vec<DialTurn> {
 
 /// Solve the puzzle with `turns` parsed from text input. `count_passing` controls whether part 2 is
 /// being solved or not.
-fn solve(turns: &mut Vec<DialTurn>, count_passing: bool) -> u32 {
+fn solve(turns: &Vec<DialTurn>, count_passing: bool) -> u32 {
     let mut dial = STARTING_POSITION;
     let mut password: u32 = 0;
 
@@ -103,12 +103,12 @@ fn solve(turns: &mut Vec<DialTurn>, count_passing: bool) -> u32 {
 
 /// Problem 1 Part 1
 pub fn p1_1() {
-    println!("Problem 01 Part 01: {}", solve(&mut get_turns(), false));
+    println!("Problem 01 Part 01: {}", solve(&get_turns(), false));
 }
 
 /// Problem 1 Part 2
 pub fn p1_2() {
-    println!("Problem 01 Part 02: {}", solve(&mut get_turns(), true));
+    println!("Problem 01 Part 02: {}", solve(&get_turns(), true));
 }
 
 #[cfg(test)]
@@ -141,17 +141,17 @@ mod tests {
 
     #[test]
     fn example() {
-        let mut turns: Vec<DialTurn> = EXAMPLE
+        let turns: Vec<DialTurn> = EXAMPLE
             .iter()
             .map(|instruction| DialTurn::from_instruction(instruction))
             .collect();
-        assert_eq!(solve(&mut turns, false), 3);
-        assert_eq!(solve(&mut turns, true), 6);
+        assert_eq!(solve(&turns, false), 3);
+        assert_eq!(solve(&turns, true), 6);
     }
 
     #[test]
     fn large_spins() {
-        let mut turns = vec![
+        let turns = vec![
             DialTurn::from_instruction("L25"),  // 25
             DialTurn::from_instruction("R75"),  // 0
             DialTurn::from_instruction("L525"), // 75 (pass 5 times)
@@ -159,7 +159,7 @@ mod tests {
             DialTurn::from_instruction("L15"),  // 40
             DialTurn::from_instruction("R999"), // 39 (pass 10 times)
         ];
-        assert_eq!(solve(&mut turns, false), 1);
-        assert_eq!(solve(&mut turns, true), 24);
+        assert_eq!(solve(&turns, false), 1);
+        assert_eq!(solve(&turns, true), 24);
     }
 }
