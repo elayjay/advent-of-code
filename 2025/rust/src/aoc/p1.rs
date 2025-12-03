@@ -1,3 +1,5 @@
+//! Problem 1: https://adventofcode.com/2025/day/1
+
 const STARTING_POSITION: u32 = 50;
 const NUM_POSITIONS: u32 = 100;
 
@@ -103,12 +105,12 @@ fn solve(turns: &Vec<DialTurn>, count_passing: bool) -> u32 {
 
 /// Problem 1 Part 1
 pub fn p1_1() {
-    println!("Problem 01 Part 01: {}", solve(&get_turns(), false));
+    println!("Problem 01 Part 1: {}", solve(&get_turns(), false));
 }
 
 /// Problem 1 Part 2
 pub fn p1_2() {
-    println!("Problem 01 Part 02: {}", solve(&get_turns(), true));
+    println!("Problem 01 Part 2: {}", solve(&get_turns(), true));
 }
 
 #[cfg(test)]
