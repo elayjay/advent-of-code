@@ -7,6 +7,9 @@ pub use p1::*;
 pub mod p2;
 pub use p2::*;
 
+pub mod p3;
+pub use p3::*;
+
 fn input_to_string(problem: i8, part: i8) -> String {
     let instructions = "\
         This project is intended to be built and run with Cargo, as it depends on the \
