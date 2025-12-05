@@ -7,4 +7,6 @@ fn main() {
     aoc::p2_2();
     aoc::p3_1();
     aoc::p3_2();
+    aoc::p4_1();
+    aoc::p4_2();
 }
