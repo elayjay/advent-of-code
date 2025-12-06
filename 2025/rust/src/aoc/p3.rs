@@ -1,3 +1,5 @@
+//! Problem 3: https://adventofcode.com/2025/day/3
+
 fn ascii_char_to_digit(char: u8) -> Option<u8> {
     if char < b'0' || char > b'9' {
         return None;
